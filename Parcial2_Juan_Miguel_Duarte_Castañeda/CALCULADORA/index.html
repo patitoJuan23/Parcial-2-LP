@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora con Módulo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora Básica</h1>
+        <div class="input-group">
+            <label for="numero1">Número 1:</label>
+            <input id="numero1" type="number" placeholder="Ingresa un número">
+        </div>
+        <div class="input-group">
+            <label for="numero2">Número 2:</label>
+            <input id="numero2" type="number" placeholder="Ingresa un número">
+        </div>
+        <div class="buttons">
+            <button onclick="realizarOperacion('suma')">Sumar</button>
+            <button onclick="realizarOperacion('resta')">Restar</button>
+            <button onclick="realizarOperacion('multiplicacion')">Multiplicar</button>
+            <button onclick="realizarOperacion('division')">Dividir</button>
+            <button onclick="realizarOperacion('potencia')">potencia</button>
+            <button onclick="realizarOperacion('modulo')">Módulo</button>
+        </div>
+        <div id="resultado" class="resultado"></div>
+    </div>
+    <script>
+ function potencia() {
+    realizarOperacion("potencia");
+}
+ 
+function realizarOperacion(operacion) {
+    var num1 = parseFloat(document.getElementById("numero1").value);
+    var num2 = parseFloat(document.getElementById("numero2").value);
+    var resultado;
+ 
+    switch (operacion) {
+        case "suma":
+            resultado = num1 + num2;
+            break;
+        case "resta":
+            resultado = num1 - num2;
+            break;
+        case "multiplicacion":
+            resultado = num1 * num2;
+            break;
+        case "division":
+            if (num2 !== 0) {
+                resultado = num1 / num2;
+            } else {
+                resultado = "Error: No se puede dividir por cero";
+            }
+            case "modulo":
+                resultado = num1 % num2;
+            break;
+        case "potencia":  // Completa la operación de potencia
+            resultado = Math.pow(num1, num2);
+            break;
+        default:
+            resultado = "Operación no válida";
+    }
+  document.getElementById("resultado").innerText = resultado;
+}
+ 
+    </script>
+</body>
+</html>
+ 
+
+
